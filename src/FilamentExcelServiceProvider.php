@@ -41,7 +41,7 @@ class FilamentExcelServiceProvider extends PackageServiceProvider
         Filament::serving($this->sendExportFinishedNotification(...));
 
         $this->callAfterResolving(Schedule::class, function (Schedule $schedule) {
-            $schedule->command(PruneExportsCommand::class)->daily();
+            // $schedule->command(PruneExportsCommand::class)->daily();
         });
 
         Event::listen(ExportFinishedEvent::class, [$this, 'cacheExportFinishedNotification']);
